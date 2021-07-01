@@ -6,8 +6,7 @@ Features
 
 - Display the weather and forecast of current location
 - Ability to search weather of all major locations of the world
-- Fully responsive layout
-- A toggle between light and dark mode
+- Fully responsive
 
 Wireframe
 
