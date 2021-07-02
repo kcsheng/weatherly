@@ -8,7 +8,11 @@ const currentWindElement = $("#curr-loc-wind");
 const currentHumidityElement = $("#curr-loc-humidity");
 const currentUvElement = $("#curr-loc-uv");
 const fiveDayForecast = $(".five-day-forecast");
+const locationBtns = $(".location-btns");
+const clearBtn = $(".clearBtn");
 const apiKey = config.apiKey;
+let historyClicked = false;
+// Event on clicking submit
 cityFormElement.on("submit", init);
 
 function init(e) {
@@ -18,7 +22,21 @@ function init(e) {
     getCurrentWeather(cityName);
     getForecastWeather(cityName);
   }
+  cityInputElement.val("");
 }
+// Event on clicking button of history
+locationBtns.on("click", "button", reload);
+function reload(e) {
+  let cityName = e.target.innerText;
+  historyClicked = true;
+  getCurrentWeather(cityName);
+  getForecastWeather(cityName);
+}
+// Event on clearing storage
+clearBtn.on("click", () => {
+  localStorage.clear();
+  document.location.replace("./index.html");
+});
 
 function getCurrentWeather(city) {
   fetch(`https://api.weatherbit.io/v2.0/current?city=${city}&key=${apiKey}`)
@@ -29,6 +47,7 @@ function getCurrentWeather(city) {
       let dataPool = data.data[0];
       let currDate = dataPool.datetime.split(":").shift();
       let currWind = Math.round(dataPool.wind_spd * 100) / 100;
+      let currHumidity = Math.round(dataPool.rh * 100) / 100;
       let currUv = Math.round(dataPool.uv * 100) / 100;
       currentCityElement.text(`${dataPool.city_name}`);
       currentWeatherElement.html(
@@ -37,8 +56,17 @@ function getCurrentWeather(city) {
       currentTimeElement.text(`Date: ${currDate}`);
       currentTempElement.html(`Temp: ${dataPool.temp}&deg;C`);
       currentWindElement.text(`Wind: ${currWind} m/s`);
-      currentHumidityElement.text(`Humidity: ${dataPool.rh}%`);
+      currentHumidityElement.text(`Humidity: ${currHumidity}%`);
       currentUvElement.text(`UV index: ${currUv}`);
+      let storableCity = dataPool.city_name;
+      // We store city only if it is from submit route, not from history click.
+      if (!historyClicked) {
+        storeSearchCity(storableCity);
+      } else {
+        // We toggle it back to false.
+        historyClicked = false;
+      }
+      showSearchCity();
     })
     .catch((err) => console.log(err));
 }
@@ -62,8 +90,25 @@ function getForecastWeather(city) {
         </div>`;
         fiveDayContent += eachDayContent;
       }
-      data.data.forEach((day) => {});
       fiveDayForecast.html(fiveDayContent);
     })
     .catch((err) => console.log(err));
 }
+
+function storeSearchCity(city) {
+  let n = localStorage.length;
+  localStorage.setItem(`city${n}`, city);
+}
+
+function showSearchCity() {
+  if (localStorage.length > 0) {
+    let cityBtns = ``;
+    for (let i = localStorage.length; i > 0; i--) {
+      let searchedCity = localStorage.getItem(`city${i - 1}`);
+      let cityBtn = `<button>${searchedCity}</button>`;
+      cityBtns += cityBtn;
+    }
+    locationBtns.html(cityBtns);
+  }
+}
+showSearchCity();

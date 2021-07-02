@@ -90,7 +90,13 @@ input {
   border: 1px solid #fff;
   margin-top: 10px;
   overflow: auto;
-  border-radius: 10px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+}
+
+.location-btns button {
+  padding: 2%;
 }
 
 button {
