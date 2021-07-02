@@ -7,7 +7,7 @@ Weatherly is a weather app that presents the weather and 5 day forecast in the c
 - Third party API (Weatherbit) connection
 - Ability to search weather of all major locations of the world
 - Current weather and 5 day forecast
-- Search history persistence
+- Clickable search history
 - Fully responsive
 
 ### Wireframe
