@@ -4,10 +4,10 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
     <link rel="stylesheet" href="./assets/style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
     <link
       href="https://fonts.googleapis.com/css2?family=Petit+Formal+Script&family=Roboto:wght@300&display=swap"
       rel="stylesheet"
@@ -19,7 +19,7 @@
       <h1>weatherly</h1>
       <div class="search-location">
         <div class="search">
-          <form>
+          <form id="city-form">
             <input type="text" placeholder="Enter City" id="city-input" />
             <button class="submit-location-btn">SUBMIT</button>
           </form>
@@ -28,14 +28,14 @@
         </div>
         <div class="curr-location">
           <div>
-            <h2 id="curr-loc-city">Melbourne</h2>
+            <h2 id="curr-loc-city"></h2>
           </div>
-          <div>Date: <span id="curr-loc-date"></span></div>
-          <div>Weather:<span id="curr-loc-weather">pattern</span></div>
-          <div>Temp:<span id="curr-loc-temp">76F</span></div>
-          <div>Wind:<span id="curr-loc-wind"></span></div>
-          <div>Humidity:<span id="curr-loc-humidity"></span></div>
-          <div>UV index:<span id="curr-loc-uv"></span></div>
+          <div><span id="curr-loc-weather"></span></div>
+          <div><span id="curr-loc-time"></span></div>
+          <div><span id="curr-loc-temp"></span></div>
+          <div><span id="curr-loc-wind"></span></div>
+          <div><span id="curr-loc-humidity"></span></div>
+          <div><span id="curr-loc-uv"></span></div>
         </div>
       </div>
 
@@ -55,7 +55,11 @@
         </div>
       </div>
     </div>
-
+    <div class="city-not-found" id="dialog" title="Weatherly responded:">
+      <p>The city is not found!</p>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"></script>
+    <script src="./assets/config.js"></script>
     <script src="./assets/script.js"></script>
   </body>
 </html>
