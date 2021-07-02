@@ -58,7 +58,7 @@ div {
 }
 
 .curr-location div {
-  padding-left: 25%;
+  padding-left: 32%;
 }
 
 .curr-location img {
@@ -99,10 +99,10 @@ button {
   background-color: var(--navyblue);
 }
 
-.clear {
-  padding: 1%;
+.clearBtn {
+  padding: 2%;
   font-size: 0.8rem;
-  margin-top: 2%;
+  margin-top: 4%;
 }
 
 .forecast {
@@ -118,7 +118,6 @@ button {
 
 h3 {
   font-size: 1.3rem;
-  padding-left: 1.5%;
   margin: 2%;
 }
 
@@ -130,7 +129,7 @@ h3 {
 
 .five-day-forecast > div {
   border: 1px solid #fff;
-  width: 15%;
+  width: 17%;
   height: 150px;
   display: flex;
   flex-direction: column;
@@ -139,6 +138,10 @@ h3 {
   border-radius: 10%;
 }
 
+.five-day-forecast img {
+  width: 40px;
+  height: 40px;
+}
 .forecast div {
   font-size: 1rem;
 }
@@ -172,7 +175,8 @@ h3 {
   }
 
   .five-day-forecast > div {
-    width: 50%;
+    width: 30%;
+    padding-left: 40px;
   }
 
   .search-location {
@@ -188,6 +192,10 @@ h3 {
 
   .curr-location {
     margin-top: 1px;
+  }
+
+  .curr-location div {
+    padding-left: 35%;
   }
 
   .wrapper {

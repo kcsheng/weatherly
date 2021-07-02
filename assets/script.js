@@ -7,6 +7,7 @@ const currentTempElement = $("#curr-loc-temp");
 const currentWindElement = $("#curr-loc-wind");
 const currentHumidityElement = $("#curr-loc-humidity");
 const currentUvElement = $("#curr-loc-uv");
+const fiveDayForecast = $(".five-day-forecast");
 const apiKey = config.apiKey;
 cityFormElement.on("submit", init);
 
@@ -15,7 +16,7 @@ function init(e) {
   let cityName = cityInputElement.val().trim().toLowerCase();
   if (cityName) {
     getCurrentWeather(cityName);
-    // getForecastWeather(cityName);
+    getForecastWeather(cityName);
   }
 }
 
@@ -42,13 +43,27 @@ function getCurrentWeather(city) {
     .catch((err) => console.log(err));
 }
 
-// function getForecastWeather(city) {
-//   fetch(
-//     `https://api.weatherbit.io/v2.0/forecast/daily?city=${city}&days=5&key=${apiKey}`
-//   )
-//     .then((res) =>
-//       res.status == 200 ? res.json() : document.location.replace("./index.html")
-//     )
-//     .then((data) => console.log(data))
-//     .catch((err) => console.log(err));
-// }
+function getForecastWeather(city) {
+  fetch(
+    `https://api.weatherbit.io/v2.0/forecast/daily?city=${city}&days=6&key=${apiKey}`
+  )
+    .then((res) =>
+      res.status == 200 ? res.json() : document.location.replace("./index.html")
+    )
+    .then((data) => {
+      let dataPool = data.data;
+      let fiveDayContent = ``;
+      for (let i = 1; i < dataPool.length; i++) {
+        let eachDayContent = `<div>
+          <div>${dataPool[i].datetime}</div>
+          <div><img src=../assets/img/icons/${dataPool[i].weather.icon}.png></div>
+          <div>Temp: ${dataPool[i].temp}&deg;C</div>
+          <div>Humidity: ${dataPool[i].rh}%</div>
+        </div>`;
+        fiveDayContent += eachDayContent;
+      }
+      data.data.forEach((day) => {});
+      fiveDayForecast.html(fiveDayContent);
+    })
+    .catch((err) => console.log(err));
+}
