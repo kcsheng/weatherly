@@ -53,7 +53,7 @@ function getCurrentWeather(city) {
       let currUv = Math.round(dataPool.uv * 100) / 100;
       currentCityElement.text(`${dataPool.city_name}`);
       currentWeatherElement.html(
-        `<img src=../assets/img/icons/${dataPool.weather.icon}.png>`
+        `<img src=./assets/img/icons/${dataPool.weather.icon}.png>`
       );
       currentTimeElement.text(`Date: ${currDate}`);
       currentTempElement.html(`Temp: ${dataPool.temp}&deg;C`);
