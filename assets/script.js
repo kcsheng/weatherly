@@ -10,7 +10,9 @@ const currentUvElement = $("#curr-loc-uv");
 const fiveDayForecast = $(".five-day-forecast");
 const locationBtns = $(".location-btns");
 const clearBtn = $(".clearBtn");
-const apiKey = config.apiKey;
+// key kept in config.js using .gitignore won't work with github.io
+const apiKey = "74dd06d307434ae89493dcead4a400ed";
+
 let historyClicked = false;
 // Event on clicking submit
 cityFormElement.on("submit", init);
