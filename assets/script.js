@@ -59,7 +59,7 @@ function getCurrentWeather(city) {
       currentTempElement.html(`Temp: ${dataPool.temp}&deg;C`);
       currentWindElement.text(`Wind: ${currWind} m/s`);
       currentHumidityElement.text(`Humidity: ${currHumidity}%`);
-      currentUvElement.text(`UV index: ${currUv}`);
+      currentUvElement.html(`UV index: <span>${currUv}</span>`);
       let storableCity = dataPool.city_name;
       // We store city only if it is from submit route, not from history click.
       if (!historyClicked) {

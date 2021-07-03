@@ -74,6 +74,13 @@ div {
   height: 80px;
 }
 
+#curr-loc-uv span {
+  background-color: #d74b00;
+  font-size: 0.8rem;
+  padding: 3px 10px;
+  border-radius: 5px;
+}
+
 form {
   width: 70%;
   text-align: center;
