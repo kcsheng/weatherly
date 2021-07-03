@@ -86,7 +86,7 @@ function getForecastWeather(city) {
       for (let i = 1; i < dataPool.length; i++) {
         let eachDayContent = `<div>
           <div>${dataPool[i].datetime}</div>
-          <div><img src=../assets/img/icons/${dataPool[i].weather.icon}.png></div>
+          <div><img src=./assets/img/icons/${dataPool[i].weather.icon}.png></div>
           <div>Temp: ${dataPool[i].temp}&deg;C</div>
           <div>Humidity: ${dataPool[i].rh}%</div>
         </div>`;

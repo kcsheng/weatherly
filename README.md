@@ -1,4 +1,4 @@
-Weatherly is a weather app that presents the weather and 5 day forecast in the current geographical location. It is equipped with a search function which allows for querying the weather of other cities.
+Weatherly is a weather app that presents the weather and 5 day forecast in the current geographical location. It is equipped with a search function which allows for querying the weather of other cities. The app can be accessed [here](https://kcsheng.github.io/weatherly/).
 
 ### Features
 
