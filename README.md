@@ -9,6 +9,7 @@ Weatherly is a weather app that presents the weather and 5 day forecast in the c
 - Current weather and 5 day forecast
 - Clickable search history
 - Fully responsive
+- Colour indication of UV severity
 
 ### Wireframe
 

@@ -60,8 +60,27 @@ function getCurrentWeather(city) {
       currentWindElement.text(`Wind: ${currWind} m/s`);
       currentHumidityElement.text(`Humidity: ${currHumidity}%`);
       currentUvElement.html(`UV index: <span>${currUv}</span>`);
-      let storableCity = dataPool.city_name;
+      // UV span colour indication
+      let uvSpan = $("#curr-loc-uv span");
+      switch (true) {
+        case currUv >= 11:
+          uvSpan.addClass("extreme");
+          break;
+        case currUv >= 8:
+          uvSpan.addClass("veryHigh");
+          break;
+        case currUv >= 6:
+          uvSpan.addClass("high");
+          break;
+        case currUv >= 3:
+          uvSpan.addClass("moderate");
+          break;
+        case currUv >= 0:
+          uvSpan.addClass("low");
+          break;
+      }
       // We store city only if it is from submit route, not from history click.
+      let storableCity = dataPool.city_name;
       if (!historyClicked) {
         storeSearchCity(storableCity);
       } else {

@@ -75,10 +75,29 @@ div {
 }
 
 #curr-loc-uv span {
-  background-color: #d74b00;
   font-size: 0.8rem;
   padding: 3px 10px;
   border-radius: 5px;
+}
+
+.low {
+  background-color: #056500;
+}
+
+.moderate {
+  background-color: #8b8000;
+}
+
+.high {
+  background-color: #e95403;
+}
+
+.veryHigh {
+  background-color: #c23104;
+}
+
+.extreme {
+  background-color: #9f027f;
 }
 
 form {
